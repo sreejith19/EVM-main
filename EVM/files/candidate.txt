@@ -1,0 +1,21 @@
+AAA0000001 sreejith a kochi cpm
+AAA0000003 Mohanlal kollam kjp
+AAA0000001 Sreejith A kannur cpm
+AAA0000003 mohanlal kannur kjp
+AAA0000013 Amjad khan kannur congress
+AAA0000012 MB Jayakrishnan kannur cpi
+AAA0000006 Biju Manoj kannur aap
+AAA0000003 Mohanlal kochi kjp
+AAA0000009 Raghavan thiruvalla kjp
+AAA0000011 Jose Prakash thiruvalla cpm
+AAA0000021 Harry kochi congress
+AAA0000005 Usman kannur independent
+AAA0000005 Usman kochi independent
+AAA0000005 Usman thiruvalla independent
+AAA0000028 william utopia democrats
+AAA0000028 william wonderland democrats
+AAA0000038 andrew wonderland republicans
+AAA0000035 jimmy utopia republicans
+AAA0000028 william kollam democrats
+AAA0000029 thomas utopia independent
+AAA0000030 uri wonderland independent
