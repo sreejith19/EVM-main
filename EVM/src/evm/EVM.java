@@ -21,7 +21,7 @@ public class EVM {
     {
         admin obj=new admin();
         obj.setVisible(true);
-        new Error.Welcome();
+        //new Error.Welcome();
     }
     
 }

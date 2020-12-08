@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//package Poll;
+package Poll;
 import evm.Error;
 import java.sql.Connection;
 import java.sql.Date;
@@ -19,21 +19,37 @@ public class VoterList {
     private static String userName="tapan";
     private static String password="tapan*1234";
     public static String generate(String cons){
-        String list="\n Voters List ("+cons+")\n VoterID  Name  DOB\n";
+        String list="<html><body><h2>Voter List("+cons.toUpperCase()+")</h2><table><tr><th>Voter ID</th><th>Name</th><th>DOB</th></tr>";
         try{
             Class.forName("com.mysql.jdbc.Driver"); 
             Connection con=DriverManager.getConnection(  
                "jdbc:mysql://localhost:3306/evm2?useSSL=false","tapan","tapan*1234");
             Statement stmt=con.createStatement();  
       
-            String s= "select * from Voter where constituency=\'"+cons+"\'";
+            String s="select cname from constituency where cname=\'"+cons+"\'";
             ResultSet rs=stmt.executeQuery(s);
+            if (rs.next() == false){
+                new Error("No such constituency");
+                return "error";
+            }
+            s= "select * from Voter where constituency=\'"+cons+"\'";
+            rs=stmt.executeQuery(s);
+            if (rs.next() == false){
+                new Error("No voters in this constituency");
+            }
+            else{
+                String v=rs.getString("Voter_id");
+                String n=rs.getString("Name");
+                Date dob=rs.getDate("dob");
+                list+=("<tr><td>"+v+"</td><td>"+n+"</td><td>"+dob+"</td></tr>");
+            }
             while(rs.next()){
                 String v=rs.getString("Voter_id");
                 String n=rs.getString("Name");
                 Date dob=rs.getDate("dob");
-                list+=(v+"  "+n+"  "+dob+"\n");
+                list+=("<tr><td>"+v+"</td><td>"+n+"</td><td>"+dob+"</td></tr>");
             }
+            list+="</table></body></html>";
             return list;
        }
        catch(ClassNotFoundException|SQLException e){
